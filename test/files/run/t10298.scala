@@ -11,6 +11,20 @@ object Test {
 
     assert(((1 +: Queue(2)) ++ Vector(3)) == Queue(1, 2, 3))
 
+    assert((Queue(1)) ++ Vector(2, 3) == Queue(1, 2, 3))
+
+    assert((Queue(1) :+ 2) ++ Vector(3,4) == Queue(1, 2, 3, 4))
+
+    assert((1 +: Queue(2)) ++ Vector(3,4) == Queue(1, 2, 3, 4))
+
+    assert(Queue(1) ++ Vector.empty == Queue(1))
+
+    assert((Queue(1) :+ 2) ++ Vector.empty == Queue(1, 2))
+
+    assert((1 +: Queue(2)) ++ Vector.empty == Queue(1, 2))
+
+    assert(((1 +: Queue(2)) ++ Vector(3, 4)) == Queue(1, 2, 3, 4))
+
     assert(((1 +: Queue(2)) ++ (3 +: Queue(4))) == Queue(1, 2, 3, 4))
   }
 
